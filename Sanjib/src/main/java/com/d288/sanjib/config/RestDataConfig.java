@@ -1,5 +1,7 @@
 package com.d288.sanjib.config;
 
+import com.d288.sanjib.dao.CountryRepository;
+import com.d288.sanjib.dao.CustomerRepository;
 import com.d288.sanjib.entities.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -35,11 +37,11 @@ public class RestDataConfig implements RepositoryRestConfigurer {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         //uncomment after entity creation
-//        config.exposeIdsFor(Country.class);
-        config.exposeIdsFor(Customer.class);
-//        config.exposeIdsFor(Division.class);
-//        config.exposeIdsFor(Excursion.class);
-//        config.exposeIdsFor(Vacation.class);
+        config.exposeIdsFor(CountryRepository.class);
+        config.exposeIdsFor(CustomerRepository.class);
+        config.exposeIdsFor(Division.class);
+        config.exposeIdsFor(Excursion.class);
+        config.exposeIdsFor(Vacation.class);
         config.setDefaultPageSize(Integer.MAX_VALUE);
         config.setMaxPageSize(Integer.MAX_VALUE);
 
