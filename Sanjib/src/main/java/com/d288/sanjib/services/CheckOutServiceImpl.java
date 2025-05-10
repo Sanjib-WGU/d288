@@ -7,11 +7,13 @@ import com.d288.sanjib.entities.Cart;
 import com.d288.sanjib.entities.CartItem;
 import com.d288.sanjib.entities.Customer;
 import com.d288.sanjib.entities.StatusType;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.UUID;
 
+@Service
 public class CheckOutServiceImpl implements CheckOutService {
     private CustomerRepository customerRepository;
     private CartRepository cartRepository;
