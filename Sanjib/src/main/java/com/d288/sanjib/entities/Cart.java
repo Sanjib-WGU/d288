@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -46,4 +47,15 @@ public class Cart {
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<CartItem> cartItem;
+
+    // Added this code during Task F - services creation
+    public void add(CartItem cartItem) {
+        if (cartItem != null) {
+            if (this.cartItem == null) {
+                this.cartItem = new HashSet<>();
+            }
+            this.cartItem.add(cartItem);
+            cartItem.setCart(this);
+        }
+    }
 }
